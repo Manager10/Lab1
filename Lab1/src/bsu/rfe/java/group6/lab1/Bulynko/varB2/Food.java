@@ -1,6 +1,6 @@
 package bsu.rfe.java.group6.lab1.Bulynko.varB2;
 
-public abstract class Food
+public abstract class Food implements Nutritious
 {
     String name = null;
     String par = null;
