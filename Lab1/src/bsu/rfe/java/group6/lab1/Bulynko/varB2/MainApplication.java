@@ -20,6 +20,19 @@ public class MainApplication {
                     breakfast[i] = new Pie(parts[1]);
                     i++;
                 }
+                if (parts[0].equals("Apple"))
+                {
+                    breakfast[i] = new Apple(parts[1]);
+                    i++;
+                }
+            }
+            if (parts.length == 1)
+            {
+                if (parts[0].equals("Cheese"))
+                {
+                    breakfast[i] = new Cheese();
+                    i++;
+                }
             }
 
             switch (parts[0])
@@ -42,8 +55,8 @@ public class MainApplication {
                 break;
         }
 
-        int pie1, pie2, pie3 = 0;
-        pie1 = pie2 = pie3;
+        int pie1, pie2, pie3, apple1, apple2, apple3, cheese;
+        pie1 = pie2 = pie3 = apple1 = apple2 = apple3 = cheese = 0;
         for(Food item: breakfast)                            // считаем, сколько чего было съедено на завтрак
         {
             if (item == null)
@@ -56,6 +69,20 @@ public class MainApplication {
                     pie2++;
                 else if (item.par.equals("яблочный"))
                     pie3++;
+            }
+
+            if (item.name.equals("Яблоко"))
+            {
+                if (item.par.equals("маленькое"))
+                    apple1++;
+                else if (item.par.equals("среднее"))
+                    apple2++;
+                else if (item.par.equals("большое"))
+                    apple3++;
+            }
+            if (item.name.equals("Сыр"))
+            {
+                cheese++;
             }
         }
 
@@ -104,7 +131,9 @@ public class MainApplication {
 
         System.out.println("На завтрак съедено:");
         System.out.println(" вишнёвых пирогов - " + pie1 + ", клубничных пирогов - "
-        + pie2 + ", яблочных пирогов - " + pie3);
+        + pie2 + ", яблочных пирогов - " + pie3
+        + ", маленьких яблок - " + apple1 + ", средних яблок - " + apple2
+        + ", больших яблок - " + apple3 + ", сыра - " + cheese);
 
     }
 }
